@@ -21,5 +21,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
        # CI001 visualizar mensaje Hola Mundo
-      - name: "Visualizar Mensaje"
-        run: echo "Hola Mundo"
+      - name: "Constuyendo"
+        run: echo "Construccion realizada"
+  test:
+    runs-on : ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Paso de test
+      run: echo "Iniciando Test"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Paso de Despliegue
+      run: echo "Iniciando Despliegue"
+
